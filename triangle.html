@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Triangle</title>
+	<style type="text/css">
+		/* common样式 */
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.fl {
+			float: left;
+		}
+		.fr {
+			float: right;
+		}
+		.clearfix {
+			zoom: 1; 
+		}
+		.clearfix:after {	
+			content: '';
+			display: block;
+			clear: both;
+		}
+		/* 原理解释 */
+		.triangle {
+			width: 200px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			margin: 10px auto;
+			border-width: 30px;
+			border-style: solid;
+			border-top-color: #8ef26e;
+			border-bottom-color: #4a56f2;
+			border-left-color: #f24ae8;
+			border-right-color: #e2464a;
+		}	
+	
+		/* 综合案例 */
+		.triangle-example {
+			width: 100px;
+			height: 100px;
+			position: relative;
+			margin: 10px auto;
+		}
+		.triangle-example-item {
+			position: absolute;
+			width: 0;
+			height: 0;
+		}
+		.triangle-en {	
+			border-top: 50px solid #8ef26e;
+			border-left: 50px solid transparent;
+		}
+		.triangle-ws {
+			border-left: 50px solid #4a56f2;
+			border-top: 50px solid transparent;
+		}
+		.triangle-wn {
+			border-top: 50px solid #f24ae8;
+			border-right: 50px solid transparent;
+		}
+		.triangle-es {
+			border-bottom: 50px solid #e2464a;
+			border-left: 50px solid transparent;
+		}
+		.en1, .ws1 {
+			top: 0;
+			left: 0;
+		}
+		.en2, .ws2 {
+			top: 50px;
+			left: 50px;
+		}
+		.wn1, .es1 {
+			top: 0;
+			left: 50px;
+		}
+		.wn2, .es2 {
+			top: 50px;
+			left: 0;
+		}
+		
+
+		/* 等腰三角形 */
+		.triangle1 {
+			width: 400px;
+			height: 120px;
+			margin: 10px auto;
+			border: 5px solid #f0f0f0;
+			border-radius: 10px;
+		}
+		.triangle1-1 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #434353;
+		}
+		.triangle1-2 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			border-top: 50px solid #434353;
+		}
+		.triangle1-3 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-top: 50px solid transparent;
+			border-bottom: 50px solid transparent;
+			border-right: 50px solid #434353;
+		}
+		.triangle1-4 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-top: 50px solid transparent;
+			border-bottom: 50px solid transparent;
+			border-left: 50px solid #434353;
+		}
+		/* 等腰直角三角形 */
+		.triangle2 {
+			width: 300px;
+			height: 80px;
+			margin: 10px auto;
+			border: 5px solid #f26e6e;
+			border-radius: 10px;
+		}
+		.triangle2-1 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-top: 50px solid transparent;
+			border-left: 50px solid #434353;
+		}
+		.triangle2-2 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-bottom: 50px solid transparent;
+			border-left: 50px solid #434353;
+		}
+		.triangle2-3 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-top: 50px solid transparent;
+			border-right: 50px solid #434353;
+		}
+		.triangle2-4 {
+			width: 0;
+			height: 0;
+			margin: 10px;
+			border-bottom: 50px solid transparent;
+			border-right: 50px solid #434353;
+		}
+		/* 极端情况 */
+		.triangle-unusual {
+			width: 0;
+			height: 0;
+			border: 50px;
+			margin: 10px auto;
+			border-style: solid;
+			border-top-color: #8ef26e;
+			border-bottom-color: #4a56f2;
+			border-left-color: #f24ae8;
+			border-right-color: #e2464a;
+		}
+		/* 带有凸起的块 */
+		.triangle-bulge {
+			width: 200px;
+			height: 100px;
+			margin: 60px auto;
+			background-color: #d2362d;
+			color: #fff;
+			text-align: center;
+			line-height: 100px;
+			position: relative;
+		}
+		.triangle-bulge::before {
+			width: 0;
+			height: 0;
+			content: '';
+			position: absolute;
+			border-left: 50px solid transparent;
+			border-right: 50px solid transparent;
+			border-bottom: 50px solid #b92dd2;
+			top: -50px;
+			left: 50px;
+		}
+		/* 带有凹陷的块 */
+		.triangle-depressed {
+			width: 200px;
+			height: 100px;
+			line-height: 80px;
+			margin: 20px auto;
+			background-color: #143dd7;
+			color: #fff;
+			text-align: center;
+			position: relative;
+		}
+		.triangle-depressed:after {
+			width: 0;
+			height: 0;
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			border-left: 100px solid transparent;
+			border-right: 100px solid transparent;
+			border-bottom: 20px solid #fff;
+		}
+	</style>
+</head>
+<body>
+	<!-- 原理图 -->
+	<div class="triangle">CSS实现三角形原理</div>
+	<!-- 综合实现 -->
+	<div class="triangle-example">
+		<div class="triangle-example-item triangle-en en1"></div>
+		<div class="triangle-example-item triangle-en en2"></div>
+		<div class="triangle-example-item triangle-ws ws1"></div>
+		<div class="triangle-example-item triangle-ws ws2"></div>
+		<div class="triangle-example-item triangle-wn wn1"></div>
+		<div class="triangle-example-item triangle-wn wn2"></div>
+		<div class="triangle-example-item triangle-es es1"></div>
+		<div class="triangle-example-item triangle-es es2"></div>
+	</div>
+	<!-- 第一类 -->
+	<div class="triangle1 .clearfix">
+		<div class="triangle1-1 fl"></div>
+		<div class="triangle1-2 fl"></div>
+		<div class="triangle1-3 fl"></div>
+		<div class="triangle1-4 fl"></div>
+	</div>
+	<!-- 第二类 -->
+	<div class="triangle2 .clearfix">
+		<div class="triangle2-1 fl"></div>
+		<div class="triangle2-2 fl"></div>
+		<div class="triangle2-3 fl"></div>
+		<div class="triangle2-4 fl"></div>
+	</div>
+	<!-- 极端例子 -->
+	<div class="triangle-unusual"></div>
+	<!-- 突起的三角形 -->
+	<div class="triangle-bulge">我有一个小凸起</div>
+	<!-- 凹陷的三角形 -->
+	<div class="triangle-depressed">我有一个小凹陷</div>
+</body>
+</html>
